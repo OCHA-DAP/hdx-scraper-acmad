@@ -3,7 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/OCHA-DAP/hdx-scraper-acmad/badge.svg?branch=main&ts=1)](https://coveralls.io/github/OCHA-DAP/hdx-scraper-acmad?branch=main)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
-This script ...
+This script downloads data from the ACMAD website and creates datasets on HDX.
 
 ## Development
 
