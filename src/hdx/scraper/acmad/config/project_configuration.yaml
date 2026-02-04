@@ -1,0 +1,61 @@
+# Collector specific configuration
+base_url: "https://ada.acmad.org/api/data_api/"
+get_datasets_endpoint: "rs_data/get_available_datasets/"
+download_endpoint: "bulk_download_data/?data_name={}&start_year={}&end_year={}"
+
+countries:
+  - AGO
+  - BDI
+  - BEN
+  - BFA
+  - BWA
+  - CAF
+  - CIV
+  - CMR
+  - COD
+  - COG
+  - COM
+  - CPV
+  - DJI
+  - DZA
+  - EGY
+  - ERI
+  - ESH
+  - ETH
+  - GAB
+  - GHA
+  - GIN
+  - GMB
+  - GNB
+  - GNQ
+  - KEN
+  - LBR
+  - LBY
+  - LSO
+  - MAR
+  - MDG
+  - MLI
+  - MOZ
+  - MRT
+  - MUS
+  - MWI
+  - NAM
+  - NER
+  - NGA
+  - RWA
+  - SDN
+  - SEN
+  - SLE
+  - SOM
+  - SSD
+  - STP
+  - SWZ
+  - SYC
+  - TCD
+  - TGO
+  - TUN
+  - TZA
+  - UGA
+  - ZAF
+  - ZMB
+  - ZWE
