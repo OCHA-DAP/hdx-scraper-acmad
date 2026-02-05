@@ -59,3 +59,292 @@ countries:
   - ZAF
   - ZMB
   - ZWE
+
+cdi:
+  name: acmad-combined-drought-indicator
+  title: Africa - Monthly and dekadal combined drought indicator (CDI)
+  notes: |-
+    The Combined Drought Indicator (CDI) dataset developed at ACMAD is designed as an
+    operational drought-monitoring product that synthesizes multiple biophysical signals
+    into a single, coherent assessment of drought conditions across Africa. Rather than
+    relying on a single indicator, the ACMAD CDI combines information from rainfall-based
+    drought indices and satellite-derived vegetation condition metrics, applying
+    rule-based logic to identify areas where these independent indicators consistently
+    point to drought stress. This convergence approach reduces the risk of false alarms
+    that can arise from short-term rainfall variability or vegetation anomalies unrelated
+    to drought. The data exist in two forms one based on GPCC while another based on Era5
+    precipitation.
+
+
+    The dataset is particularly useful in the African context, where ground observations
+    are sparse and climatic gradients are strong across regions. By using harmonized,
+    gridded datasets, the CDI provides a comparable drought signal across national
+    boundaries, supporting regional coordination and continental-scale analysis. Its
+    categorical outputs are intentionally simple and policy-ready, making them suitable
+    for drought bulletins, early-warning communications, and high-level decision support.
+
+
+    Importantly, the CDI is not intended to replace detailed drought diagnostics or impact
+    assessments. Instead, it serves as a convergence and confirmation tool that highlights
+    areas requiring closer analysis and expert interpretation. In this role, the CDI acts
+    as a bridge between complex climate data and practical drought-risk management,
+    enabling timely, consistent, and defensible drought monitoring at regional and
+    continental scales.
+  methodology: |-
+    The Combined Drought Indicator (CDI) is derived from the combination of SPI, SMA and
+    fAPAR, to identify areas with the potential to suffer agricultural drought, areas
+    where the vegetation is already affected by drought conditions, and areas in the
+    recovery process to normal conditions after a drought episode.
+  caveats: |-
+    Each ZIP download contains the original scanned TIFF files for a single calendar
+    year, including monthly and dekadal scans. The files are provided in a ZIP archive
+    to preserve the original sources and may be extracted and converted as needed.
+
+
+    The data may require interpretation with its building blocks such as the vegetation,
+    soil moisture or rainfall to fully place the cause of the drought, highly dependent
+    on the data source, in this case SPI, soil moisture anomaly and vegetation anomaly
+    which may vary depending with number of weather stations sharing data on a geographic location.
+  resource:
+    name: cdi_geotiffs_{}
+    description: CDI geotiffs by month and dekad for {}
+
+sma:
+  name: acmad-soil-moisture-anomaly
+  title: Africa - Monthly and dekadal Soil Moisture Anomaly (SMA)
+  notes: |-
+    The Soil Moisture Anomaly (SMA) dataset provides a measure of deviation in root-zone
+    soil moisture conditions relative to the long-term climatological mean. Generated
+    typically from hydrological models or satellite assimilation systems, this product
+    highlights deficits or surpluses in soil water availability that are critical for
+    agriculture and pastoralism. Because soil moisture integrates rainfall over time
+    and accounts for evapotranspiration losses, SMA offers a more direct indicator of
+    agricultural drought stress than precipitation deficits alone.
+
+
+    This dataset is essential for monitoring the onset of agricultural drought, as soil
+    moisture deficits often precede visible vegetation stress. It is widely used to
+    assess potential yield reductions in rainfed agriculture and to monitor fodder
+    availability in pastoral regions.
+  methodology: |-
+    SMA is calculated by comparing current soil moisture estimates (often from reanalysis
+    data or hydrological models) against a historical baseline for the same time period.
+    The anomalies are typically expressed as standard deviations from the mean or as
+    percentage deviations, allowing users to identify the severity of dryness or wetness
+    relative to normal conditions for that specific location and time of year.
+  caveats: |-
+    Each ZIP download contains the original scanned TIFF files for a single calendar
+    year, including monthly and dekadal scans. The files are provided in a ZIP archive
+    to preserve the original sources and may be extracted and converted as needed.
+
+
+    Soil moisture data derived from models or satellite remote sensing may have uncertainties
+    related to soil texture maps, depth assumptions, and vegetation cover interference.
+    Users should be aware that "root-zone" definitions vary between models and may not
+    perfectly match the specific rooting depths of all local crops.
+  resource:
+    name: sma_geotiffs_{}
+    description: SMA geotiffs by month and dekad for {}
+
+fapar_anomaly:
+  name: acmad-fapar-anomaly
+  title: Africa - Fraction of Absorbed Photosynthetically Active Radiation (fAPAR) Anomaly
+  notes: |-
+    The fAPAR Anomaly dataset maps deviations in vegetation health and photosynthetic
+    activity across Africa. fAPAR measures the proportion of solar radiation absorbed
+    by plants for photosynthesis, making it a robust biophysical indicator of vegetation
+    status. The anomaly product highlights areas where vegetation activity is significantly
+    below or above the long-term average, serving as a primary proxy for agricultural
+    production and biomass availability.
+
+
+    Unlike simple greenness indices (like NDVI), fAPAR is physically related to the
+    energy and mass exchange processes of the canopy. Negative anomalies in this dataset
+    are strong indicators of vegetation stress caused by drought, pests, or disease,
+    making it a critical input for yield forecasting and food security analysis.
+  methodology: |-
+    This product is derived by comparing current satellite-observed fAPAR values against
+    the long-term historical average for the same dekad or month. The resulting anomalies
+    indicate whether the vegetation is performing better or worse than expected. It is
+    frequently used as the "impact" component in combined drought indicators, confirming
+    that meteorological deficits have translated into actual biophysical stress.
+  caveats: |-
+    Each ZIP download contains the original scanned TIFF files for a single calendar
+    year, including monthly and dekadal scans. The files are provided in a ZIP archive
+    to preserve the original sources and may be extracted and converted as needed.
+
+
+    Cloud cover and atmospheric aerosols can sometimes interfere with optical satellite
+    retrievals, although compositing techniques generally mitigate this. Extreme anomalies
+    should be cross-referenced with rainfall or soil moisture data to confirm drought
+    as the cause rather than non-climatic factors like land-use change or locust infestations.
+  resource:
+    name: fapar_anomaly_geotiffs_{}
+    description: fAPAR Anomaly geotiffs by month and dekad for {}
+
+fapar_absorbed:
+  name: acmad-fapar-absorbed
+  title: Africa - Fraction of Absorbed Photosynthetically Active Radiation (fAPAR) Absolute Values
+  notes: |-
+    This dataset contains the absolute values of the Fraction of Absorbed Photosynthetically
+    Active Radiation (fAPAR). While anomalies show deviations from the norm, these absolute
+    values provide a direct measure of the current state of vegetation density and health.
+    It represents the fraction of incoming solar radiation in the photosynthetically active
+    spectrum that is absorbed by the canopy, ranging theoretically from 0 (bare soil) to
+    1 (dense, healthy vegetation).
+
+
+    Absolute fAPAR is crucial for initializing crop growth models, estimating net primary
+    productivity (NPP), and monitoring the phenological development of crops and natural
+    vegetation throughout the growing season.
+  methodology: |-
+    Derived from optical satellite sensors (such as those on Sentinel or PROBA-V, processed
+    by CGLS), this product utilizes the radiative transfer properties of the canopy.
+    It provides a quantitative assessment of the "green" elements of the canopy and their
+    capacity to absorb energy.
+  caveats: |-
+    Each ZIP download contains the original scanned TIFF files for a single calendar
+    year, including monthly and dekadal scans. The files are provided in a ZIP archive
+    to preserve the original sources and may be extracted and converted as needed.
+
+
+    Values saturate in very dense tropical forests (though less so than NDVI). In arid
+    regions with very sparse vegetation, the signal may be dominated by soil background
+    reflectance. This is raw vegetation status data, not an anomaly, so interpretation
+    of "drought" requires knowledge of the typical phenological cycle for the region.
+  resource:
+    name: fapar_absorbed_geotiffs_{}
+    description: Absolute fAPAR geotiffs by month and dekad for {}
+
+spi:
+  name: acmad-standardized-precipitation-index
+  title: Africa - Standardized Precipitation Index (SPI)
+  notes: |-
+    The Standardized Precipitation Index (SPI) is the globally recommended standard for
+    characterizing meteorological drought. It quantifies observed precipitation as a
+    standardized deviation from the long-term probability distribution function for
+    a specific location and time scale. This dataset typically includes multiple time-scales
+    (e.g., 1-month, 3-month, 6-month, 12-month) to capture different types of drought impacts,
+    from immediate soil moisture deficits to long-term hydrological stress.
+
+
+    Because SPI is normalized, it allows for safe comparisons between different climatic
+    zones—allowing a wet region and a dry region to be compared on the same scale of
+    drought severity.
+  methodology: |-
+    SPI is calculated by fitting a probability distribution (usually Gamma) to long-term
+    precipitation records and then transforming that distribution into a normal distribution.
+    Negative values indicate dry conditions (drought), while positive values indicate
+    wet conditions. The magnitude of the negative value corresponds to the severity
+    of the drought (e.g., -1.5 is severe drought, -2.0 is extreme).
+  caveats: |-
+    Each ZIP download contains the original scanned TIFF files for a single calendar
+    year, including monthly and dekadal scans. The files are provided in a ZIP archive
+    to preserve the original sources and may be extracted and converted as needed.
+
+
+    The accuracy of SPI is entirely dependent on the quality and length of the historical
+    rainfall record used for the baseline. In regions with sparse gauge networks, interpolation
+    errors in the input precipitation data can propagate into the SPI calculation. SPI
+    does not account for temperature or evapotranspiration, only rainfall.
+  resource:
+    name: spi_geotiffs_{}
+    description: SPI geotiffs by month and dekad for {}
+
+gpcc_monthly_precipitation:
+  name: acmad-gpcc-monthly-precipitation
+  title: Africa - GPCC Monthly Precipitation Product
+  notes: |-
+    The Global Precipitation Climatology Centre (GPCC) Monthly Precipitation dataset provides
+    gridded gauge-analysis products focusing on land-surface precipitation. This dataset
+    serves as a high-quality observational baseline for climate monitoring across Africa.
+    It is constructed from quality-controlled data from thousands of rain gauges worldwide.
+
+
+    At ACMAD, this data often serves as the "truth" or reference layer for calibrating
+    satellite estimates and for calculating long-term indices like SPI. It is critical
+    for retrospective analysis, model verification, and understanding the climatological
+    context of current weather events.
+  methodology: |-
+    The product is based on in-situ rain gauge measurements that undergo strict quality
+    control and are interpolated onto a regular grid. It distinguishes itself by using
+    the largest available database of station data, making it one of the most reliable
+    gridded precipitation datasets for land areas.
+  caveats: |-
+    Each ZIP download contains the original scanned TIFF files for a single calendar
+    year, including monthly and dekadal scans. The files are provided in a ZIP archive
+    to preserve the original sources and may be extracted and converted as needed.
+
+
+    As a gauge-based product, its accuracy is lower in regions with sparse station density
+    (e.g., parts of the Sahara or the Congo Basin). There is typically a latency period
+    for the final quality-controlled product, though "First Guess" or "Monitoring" versions
+    may be available sooner.
+  resource:
+    name: gpcc_precip_geotiffs_{}
+    description: GPCC precipitation geotiffs by month for {}
+
+cdi_era5:
+  name: acmad-combined-drought-indicator-era5
+  title: Africa - CDI based on ERA5 Precipitation
+  notes: |-
+    This version of the Combined Drought Indicator (CDI) utilizes ERA5 reanalysis data
+    as the primary input for the precipitation component (SPI), rather than gauge-only
+    or other satellite-blended products. ERA5, produced by ECMWF, offers comprehensive
+    spatial coverage and temporal consistency, making it valuable for regions where gauge
+    networks are failing or sparse.
+
+
+    Like the standard CDI, this dataset synthesizes rainfall deficits (via ERA5), soil
+    moisture anomalies, and vegetation stress into a single classification system to
+    monitor the evolution of drought episodes.
+  methodology: |-
+    The methodology mirrors the standard ACMAD CDI: combining meteorological drought (SPI computed
+    from ERA5), agricultural drought (Soil Moisture Anomaly), and vegetation impact (fAPAR).
+    A convergence of evidence approach identifies where these indicators overlap to classify
+    regions into categories such as "Watch," "Warning," and "Alert."
+  caveats: |-
+    Each ZIP download contains the original scanned TIFF files for a single calendar
+    year, including monthly and dekadal scans. The files are provided in a ZIP archive
+    to preserve the original sources and may be extracted and converted as needed.
+
+
+    While ERA5 provides complete spatial coverage, it is a model reanalysis and may overestimate
+    drizzle or miss localized convective storms common in the tropics. Users should compare
+    this product with the GPCC-based CDI where gauge data is available to understand
+    potential biases in the reanalysis inputs.
+  resource:
+    name: cdi_era5_geotiffs_{}
+    description: ERA5-based CDI geotiffs by month and dekad for {}
+
+drought_to_persist:
+  name: acmad-drought-forecast-persistence
+  title: Africa - Drought Persistence Outlook
+  notes: |-
+    The Drought to Persist dataset provides a probabilistic or categorical outlook indicating
+    areas where current drought conditions are expected to continue into the next forecast
+    period. This product integrates the current state of drought (initial conditions from CDI
+    or SPI) with seasonal or sub-seasonal climate forecasts.
+
+
+    It is a key early warning tool for decision-makers, distinguishing between drought
+    events that are likely to alleviate due to incoming rains and those that are entrenched
+    and likely to worsen. This allows for the prioritization of resources to areas with
+    chronic or intensifying stress.
+  methodology: |-
+    This is typically derived by combining current drought indices (monitoring) with
+    precipitation forecasts (e.g., from seasonal climate outlooks or GCM ensembles).
+    If a region is currently in drought and the forecast probability for precipitation
+    is below normal, the drought is flagged to persist.
+  caveats: |-
+    Each ZIP download contains the original scanned TIFF files for a single calendar
+    year, including monthly and dekadal scans. The files are provided in a ZIP archive
+    to preserve the original sources and may be extracted and converted as needed.
+
+
+    This product inherits the uncertainties of seasonal climate forecasts, which can be
+    lower in skill during transition seasons or in specific regions of the continent.
+    It represents a risk assessment rather than a deterministic prediction.
+  resource:
+    name: drought_persist_geotiffs_{}
+    description: Drought persistence outlook geotiffs for {}

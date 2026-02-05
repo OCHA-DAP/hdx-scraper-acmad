@@ -1,44 +1,8 @@
-title: Combined Drought Indicator Africa
 license_id: cc-by
 methodology: Other
-methodology_other: >
-  The Combined Drought Indicator (CDI) is derived from the combination of SPI, SMA and
-  fAPAR, to identify areas with the potential to suffer agricultural drought, areas
-  where the vegetation is already affected by drought conditions, and areas in the
-  recovery process to normal conditions after a drought episode.
-caveats: >
-  May require interpretation with its building blocks such as the vegetation, soil
-  moisture or rainfall to fully place the cause of the drought, highly dependent on the
-  data source, in this case SPI, soil moisture anomaly and vegetation anomaly which may
-  vary depending with number of weather stations sharing data on a geographic location.
 dataset_source: African Center of Meteorological Applications for Development (ACMAD)
 package_creator: HDX Data Systems Team
 private: False
 maintainer: 196196be-6037-4488-8b71-d786adf4c081
 owner_org:  2dbc5dcc-1507-470b-a414-0687e0980ecb
 data_update_frequency: 14
-notes: >
-  The Combined Drought Indicator (CDI) dataset developed at ACMAD is designed as an
-  operational drought-monitoring product that synthesizes multiple biophysical signals
-  into a single, coherent assessment of drought conditions across Africa. Rather than
-  relying on a single indicator, the ACMAD CDI combines information from rainfall-based
-  drought indices and satellite-derived vegetation condition metrics, applying
-  rule-based logic to identify areas where these independent indicators consistently
-  point to drought stress. This convergence approach reduces the risk of false alarms
-  that can arise from short-term rainfall variability or vegetation anomalies unrelated
-  to drought. The data exist in two forms one based on GPCC while another based on Era5
-  preciptation
-
-  The dataset is particularly useful in the African context, where ground observations
-  are sparse and climatic gradients are strong across regions. By using harmonized,
-  gridded datasets, the CDI provides a comparable drought signal across national
-  boundaries, supporting regional coordination and continental-scale analysis. Its
-  categorical outputs are intentionally simple and policy-ready, making them suitable
-  for drought bulletins, early-warning communications, and high-level decision support.
-
-  Importantly, the CDI is not intended to replace detailed drought diagnostics or impact
-  assessments. Instead, it serves as a convergence and confirmation tool that highlights
-  areas requiring closer analysis and expert interpretation. In this role, the CDI acts
-  as a bridge between complex climate data and practical drought-risk management,
-  enabling timely, consistent, and defensible drought monitoring at regional and
-  continental scales.

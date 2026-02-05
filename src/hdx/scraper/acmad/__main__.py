@@ -19,6 +19,7 @@ from hdx.utilities.path import (
 from hdx.utilities.retriever import Retrieve
 
 from hdx.scraper.acmad._version import __version__
+from hdx.scraper.acmad.api_retriever import APIRetriever
 from hdx.scraper.acmad.pipeline import Pipeline
 
 logger = logging.getLogger(__name__)
@@ -56,26 +57,28 @@ def main(
                 save=save,
                 use_saved=use_saved,
             )
-            pipeline = Pipeline(configuration, retriever, tempdir)
+            apiretriever = APIRetriever(configuration, retriever)
+            available_data_types = apiretriever.get_available_data_types()
+            zipped_tifs = apiretriever.process()
+
+            pipeline = Pipeline(configuration, zipped_tifs)
             #
             # Steps to generate dataset
             #
-            available_datasets = pipeline.get_available_datasets()
-            data_type = "cdi"  # Just CDI for now
-            dataset_info = available_datasets[data_type]
-            dataset = pipeline.generate_dataset(data_type, dataset_info)
-            if dataset:
-                dataset.update_from_yaml(
-                    script_dir_plus_file(
-                        join("config", "hdx_dataset_static.yaml"), main
+            for data_type, data_type_info in available_data_types.items():
+                dataset = pipeline.generate_dataset(data_type, data_type_info)
+                if dataset:
+                    dataset.update_from_yaml(
+                        script_dir_plus_file(
+                            join("config", "hdx_dataset_static.yaml"), main
+                        )
                     )
-                )
-                dataset.create_in_hdx(
-                    remove_additional_resources=True,
-                    match_resource_order=False,
-                    updated_by_script=_UPDATED_BY_SCRIPT,
-                    batch=info["batch"],
-                )
+                    dataset.create_in_hdx(
+                        remove_additional_resources=True,
+                        match_resource_order=True,
+                        updated_by_script=_UPDATED_BY_SCRIPT,
+                        batch=info["batch"],
+                    )
 
 
 if __name__ == "__main__":

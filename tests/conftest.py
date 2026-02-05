@@ -53,4 +53,14 @@ def configuration(config_dir):
         "id": "b891512e-9516-4bf5-962a-7a289772a2a1",
         "name": "approved",
     }
+    for key in (
+        "sma",
+        "fapar_anomaly",
+        "fapar_absorbed",
+        "spi",
+        "gpcc_monthly_precipitation",
+        "cdi_era5",
+        "drought_to_persist",
+    ):
+        del configuration[key]
     return configuration
