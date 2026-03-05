@@ -306,7 +306,16 @@ class TestPipeline:
                     "where the vegetation is already affected by drought "
                     "conditions, and areas in the\n"
                     "recovery process to normal conditions after a drought "
-                    "episode.",
+                    "episode.\n"
+                    "\n"
+                    "\n"
+                    "**Value Ranges:**\n"
+                    "\n"
+                    "* **1-3:** watch\n"
+                    "* **4-6:** warning\n"
+                    "* **7-10:** alert\n"
+                    "* **11-12:** partial-recovery\n"
+                    "* **13-14:** full-recovery",
                     "name": "acmad-combined-drought-indicator",
                     "notes": "The Combined Drought Indicator (CDI) dataset developed at ACMAD is "
                     "designed as an\n"

@@ -95,6 +95,16 @@ cdi:
     fAPAR, to identify areas with the potential to suffer agricultural drought, areas
     where the vegetation is already affected by drought conditions, and areas in the
     recovery process to normal conditions after a drought episode.
+
+
+    **Value Ranges:**
+
+    * **1-3:** watch
+    * **4-6:** warning
+    * **7-10:** alert
+    * **11-12:** partial-recovery
+    * **13-14:** full-recovery
+
   caveats: |-
     Each ZIP download contains the original scanned TIFF files for a single calendar
     year, including monthly and dekadal scans. The files are provided in a ZIP archive
@@ -303,6 +313,16 @@ cdi_era5:
     from ERA5), agricultural drought (Soil Moisture Anomaly), and vegetation impact (fAPAR).
     A convergence of evidence approach identifies where these indicators overlap to classify
     regions into categories such as "Watch," "Warning," and "Alert."
+
+
+    **Value Ranges:**
+
+    * **1-3:** watch
+    * **4-6:** warning
+    * **7-10:** alert
+    * **11-12:** partial-recovery
+    * **13-14:** full-recovery
+
   caveats: |-
     Each ZIP download contains the original scanned TIFF files for a single calendar
     year, including monthly and dekadal scans. The files are provided in a ZIP archive
