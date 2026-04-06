@@ -3,7 +3,8 @@ FROM public.ecr.aws/unocha/python:3.13-stable AS builder
 
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-WORKDIR /srv/hdx-scraper-acmad
+# Use the base /srv directory to inherit proper non-root permissions
+WORKDIR /srv
 
 # Ensures uv copies files instead of hardlinking to a cache that won't exist in Stage 2
 ENV UV_COMPILE_BYTECODE=1
@@ -37,12 +38,13 @@ FROM public.ecr.aws/unocha/python:3.13-stable
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /srv/hdx-scraper-acmad
+# Align with Stage 1
+WORKDIR /srv
 
 # 1. Copy the entire working directory (includes .venv and root scripts like run.py)
-COPY --from=builder /srv/hdx-scraper-acmad /srv/hdx-scraper-acmad
+COPY --from=builder /srv /srv
 
 # 2. Prepend the Virtual Environment to the PATH
-ENV PATH="/srv/hdx-scraper-acmad/.venv/bin:${PATH}"
+ENV PATH="/srv/.venv/bin:${PATH}"
 
 CMD ["python3", "run.py"]
